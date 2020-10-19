@@ -17,8 +17,8 @@ namespace SnowSoftWithSpecflow.StepDefinition
         IWebDriver driver;
         String actualTitle;
 
-        [Given(@"URL ""(.*)"" is opened in ""(.*)"" browser")]
-        public void GivenURLIsOpenedInBrowser(string url, string browserName)
+        [When(@"URL ""(.*)"" is opened in ""(.*)"" browser")]
+        public void WhenURLIsOpenedInBrowser(string url, string browserName)
         {
             driver = browserInit.LaunchBrowser(browserName, url);
         }
@@ -29,6 +29,7 @@ namespace SnowSoftWithSpecflow.StepDefinition
             actualTitle = driver.Title;
         }
 
+       
         [Then(@"Title should be ""(.*)""")]
         public void ThenTitleShouldBe(string browserTitle)
         {

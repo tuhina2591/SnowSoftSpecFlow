@@ -20,11 +20,12 @@ namespace SnowSoftWithSpecflow.StepDefinition
         IWebDriver driver;
        
 
-        [Given(@"Snow Home page is open")]
-        public void GivenSnowHomePageIsOpen()
+        [Given(@"""(.*)"" is open in ""(.*)""")]
+        public void GivenIsOpenIn(string url,string browserName)
         {
-            Console.WriteLine(driver.Title);
+            driver = browserInit.LaunchBrowser(browserName, url);
         }
+
 
 
         [When(@"I Hover on Success Tab")]

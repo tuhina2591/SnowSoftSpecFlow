@@ -3,17 +3,15 @@
 	to navigate to Snow Globe community Page under Success Tab
 	Here he can Search the Text and should be able to go to License Manager Page and Validate it
 
-Background: 
-Given URL "http://www.snowsoftware.com" is opened in "Chrome" browser
 
 @mytag
 Scenario: Validate Snow Software Title
-	When Browser opens with Snow Home Page
+	When URL "http://www.snowsoftware.com" is opened in "Chrome" browser
 	Then Title should be "Snow Software – The Technology Intelligence Platform"
 	
 
 Scenario: Verify Redirection to Snow Globe Page
-	Given Snow Home page is open
+	Given "http://www.snowsoftware.com" is open in "Chrome"
 	When I Hover on Success Tab
 	And Click on Snow Globe Community Link
 	Then the "Welcome to Snow Globe" Page should be opened	
