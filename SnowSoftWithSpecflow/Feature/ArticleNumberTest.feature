@@ -5,24 +5,24 @@
 
 
 @mytag
-Scenario: Validate Snow Software Title
+Scenario: 1 Validate Snow Software Title
 	When URL "http://www.snowsoftware.com" is opened in "Chrome" browser
 	Then Title should be "Snow Software – The Technology Intelligence Platform"
 	
 
-Scenario: Verify Redirection to Snow Globe Page
+Scenario: 2 Verify Redirection to Snow Globe Page
 	Given "http://www.snowsoftware.com" is open in "Chrome"
 	When I Hover on Success Tab
 	And Click on Snow Globe Community Link
 	Then the "Welcome to Snow Globe" Page should be opened	
 
-Scenario: User Navigation to Release Page
+Scenario: 3 User Navigation to Release Page
 	Given Welcome to Snow Globe is open in the "Chrome"
 	When I enter "Snow License Manager" 
 	And click on "Release Notes" link
 	Then I should be navigated to "Release Notes: Snow License Manager 9.7.1" Page
 
-Scenario: Validate Article Number
+Scenario: 4 Validate Article Number
 	Given User is on "Snow License Manager" Page in "Chrome"
 	Then Article Number should be "000013119"
 
