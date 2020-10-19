@@ -22,17 +22,11 @@ namespace SnowSoftWithSpecflow.StepDefinition
         {
             driver = browserInit.LaunchBrowser(browserName, url);
         }
-
-        [When(@"Browser opens with Snow Home Page")]
-        public void WhenBrowserOpensWithSnowHomePage()
-        {
-            actualTitle = driver.Title;
-        }
-
-       
+               
         [Then(@"Title should be ""(.*)""")]
         public void ThenTitleShouldBe(string browserTitle)
         {
+            actualTitle = driver.Title;
             Assert.AreEqual(browserTitle, actualTitle);
             browserInit.CloseBrowser();
         }
