@@ -5,6 +5,9 @@
     <Compile Update="StepDefinition\LaunchBrowserSteps.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="StepDefinition\LicenseManagerRedirectionSteps.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="StepDefinition\SnowGlobeRedirectionSteps.cs">
       <SubType>Code</SubType>
     </Compile>

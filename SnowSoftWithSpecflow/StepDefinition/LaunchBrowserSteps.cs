@@ -17,30 +17,23 @@ namespace SnowSoftWithSpecflow.StepDefinition
         IWebDriver driver;
         String actualTitle;
 
-        [Given(@"I launch Snow Software URL with any browser")]
-        public void GivenILaunchSnowSoftwareURLWithAnyBrowser()
+        [Given(@"URL ""(.*)"" is opened in ""(.*)"" browser")]
+        public void GivenURLIsOpenedInBrowser(string url, string browserName)
         {
-            driver = browserInit.LaunchBrowser("chrome", "http://www.snowsoftware.com");
+            driver = browserInit.LaunchBrowser(browserName, url);
         }
 
-        [When(@"the page is opened")]
-        public void WhenThePageIsOpened()
+        [When(@"Browser opens with Snow Home Page")]
+        public void WhenBrowserOpensWithSnowHomePage()
         {
             actualTitle = driver.Title;
         }
 
-        [Then(@"the Snow Home Page should be opened")]
-        public void ThenTheSnowHomePageShouldBeOpened()
+        [Then(@"Title should be ""(.*)""")]
+        public void ThenTitleShouldBe(string browserTitle)
         {
-            Assert.AreEqual("Snow Software – The Technology Intelligence Platform", actualTitle);
+            Assert.AreEqual(browserTitle, actualTitle);
         }
-
-        [Then(@"the browser should be closed afterwards")]
-        public void ThenTheBrowserShouldBeClosedAfterwards()
-        {
-            browserInit.CloseBrowser();
-        }
-
 
 
     }

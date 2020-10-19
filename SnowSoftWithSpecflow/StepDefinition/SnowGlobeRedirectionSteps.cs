@@ -14,17 +14,18 @@ namespace SnowSoftWithSpecflow.StepDefinition
     [Binding]
     public sealed class SnowGlobeRedirectionSteps
     {
-        BrowserInit browserInit;
+        BrowserInit browserInit = new BrowserInit();
         SnowHome snowHome;
         GlobeCommunity globeCommunity;
         IWebDriver driver;
        
 
-        [Given(@"My Browser is Open with Snow Software URL")]
-        public void GivenMyBrowserIsOpenWithSnowSoftwareURL()
+        [Given(@"Snow Home page is open")]
+        public void GivenSnowHomePageIsOpen()
         {
-            driver = browserInit.LaunchBrowser("chrome", "http://www.snowsoftware.com");
+            Console.WriteLine(driver.Title);
         }
+
 
         [When(@"I Hover on Success Tab")]
         public void WhenIHoverOnSuccessTab()
@@ -41,11 +42,12 @@ namespace SnowSoftWithSpecflow.StepDefinition
             Thread.Sleep(10000);
 
         }
-        [Then(@"the Welcome to Snow Globe Page should be opened")]
-        public void ThenTheWelcomeToSnowGlobePageShouldBeOpened()
+       
+        [Then(@"the ""(.*)"" Page should be opened")]
+        public void ThenThePageShouldBeOpened(string pageName)
         {
             String pageLabel = globeCommunity.GetLabelText();
-            Assert.AreEqual("Welcome to Snow Globe", pageLabel);
+            Assert.AreEqual(pageName, pageLabel);
         }
 
     }
