@@ -49,6 +49,7 @@ namespace SnowSoftWithSpecflow.StepDefinition
         {
             String pageLabel = globeCommunity.GetLabelText();
             Assert.AreEqual(pageName, pageLabel);
+            browserInit.CloseBrowser();
         }
 
     }

@@ -34,6 +34,7 @@ namespace SnowSoftWithSpecflow.StepDefinition
         public void ThenTitleShouldBe(string browserTitle)
         {
             Assert.AreEqual(browserTitle, actualTitle);
+            browserInit.CloseBrowser();
         }
 
 
