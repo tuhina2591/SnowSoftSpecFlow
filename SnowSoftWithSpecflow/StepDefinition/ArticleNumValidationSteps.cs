@@ -2,58 +2,51 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
+using TechTalk.SpecFlow;
 using NUnit.Framework;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.PageObjects;
-using TechTalk.SpecFlow;
+using System.Threading;
+using SnowSoftWithSpecflow.PageObjectss;
 
 namespace SnowSoftWithSpecflow.StepDefinition
 {
     [Binding]
-    public sealed class LicenseManagerRedirectionSteps
+    public sealed class ArticleNumValidationSteps
     {
         BrowserInit browserInit = new BrowserInit();
         SnowHome snowHome;
         GlobeCommunity globeCommunity;
+        LicenseManager licenseManager;
         IWebDriver driver;
+
         //private readonly ScenarioContext _scenarioContext;
 
-        //public LicenseManagerRedirectionSteps(ScenarioContext scenarioContext)
+        //public ArticleNumValidationSteps(ScenarioContext scenarioContext)
         //{
         //    _scenarioContext = scenarioContext;
         //}
-        [Given(@"Welcome to Snow Globe is open in the ""(.*)""")]
-        public void GivenWelcomeToSnowGlobeIsOpenInThe(string browserName)
+        [Given(@"User is on ""(.*)"" Page in ""(.*)""")]
+        public void GivenUserIsOnPageIn(string searchText, string browserName)
         {
             driver = browserInit.LaunchBrowser(browserName, "http://www.snowsoftware.com");
             snowHome = new SnowHome(driver);
+            globeCommunity = new GlobeCommunity(driver);
             snowHome.MoveToSuccessLink();
             snowHome.ClickSnowGlobeLink();
             Thread.Sleep(10000);
-        }
-
-        [When(@"I enter ""(.*)""")]
-        public void WhenIEnter(string searchText)
-        {
-            globeCommunity = new GlobeCommunity(driver);
             globeCommunity.SetSearchString(searchText);
             Thread.Sleep(10000);
-                      
-        }
-
-        [When(@"click on ""(.*)"" link")]
-        public void WhenClickOnLink(string p0)
-        {
             globeCommunity.ClickReleaseLink();
-            Thread.Sleep(30000);
-            Console.WriteLine("Page" + p0 + "is Open");
         }
 
-        [Then(@"I should be navigated to ""(.*)"" Page")]
-        public void ThenIShouldBeNavigatedToPage(string pageName)
+        [Then(@"Article Number should be ""(.*)""")]
+        public void ThenArticleNumberShouldBe(String articleNumber)
         {
-            Assert.AreEqual(pageName, driver.Title);
+            Thread.Sleep(10000);
+            licenseManager = new LicenseManager(driver);
+            String number = licenseManager.GetArticleNumber();
+            Assert.AreEqual(articleNumber,number);
             browserInit.CloseBrowser();
         }
 

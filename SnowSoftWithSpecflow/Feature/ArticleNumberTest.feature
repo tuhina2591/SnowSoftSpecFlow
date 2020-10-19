@@ -16,9 +16,13 @@ Scenario: Verify Redirection to Snow Globe Page
 	And Click on Snow Globe Community Link
 	Then the "Welcome to Snow Globe" Page should be opened	
 
-#Scenario: User Navigation to Release Page
-#	Given Browser is Open and user has navigated to Snow Globe Page
-#	When I Enter 'Snow License Manager' 
-#	And Click on Release Notes Link
-#	Then I should be navigated to Release Manager Page
-#
+Scenario: User Navigation to Release Page
+	Given Welcome to Snow Globe is open in the "Chrome"
+	When I enter "Snow License Manager" 
+	And click on "Release Notes" link
+	Then I should be navigated to "Release Notes: Snow License Manager 9.7.1" Page
+
+Scenario: Validate Article Number
+	Given User is on "Snow License Manager" Page in "Chrome"
+	Then Article Number should be "000013119"
+

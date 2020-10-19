@@ -30,9 +30,9 @@ namespace SnowSoftWithSpecflow.PageObjects
 
 
         }
-        public void SetSearchString()
+        public void SetSearchString(String searchText)
         {
-            driver.FindElement(searchTextBox).SendKeys("Snow License Manager");
+            driver.FindElement(searchTextBox).SendKeys(searchText);
             //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(dropDown));
             //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(releaseLink));
             //wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementToBeSelected(releaseLink));
