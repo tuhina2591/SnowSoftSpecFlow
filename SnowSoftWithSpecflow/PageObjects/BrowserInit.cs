@@ -1,50 +1,43 @@
 ﻿using OpenQA.Selenium;
-using OpenQA.Selenium.Chrome;
-using OpenQA.Selenium.Firefox;
-using OpenQA.Selenium.IE;
 using System;
+using SnowSoftWithSpecflow.Factory;
 using System.Collections.Generic;
 using System.Text;
+using NUnit.Framework;
 
 namespace SnowSoftWithSpecflow.PageObjects
-{
-    public class BrowserInit
     {
-        IWebDriver webDriver;
-        public IWebDriver LaunchBrowser(String browser, String url)
+        public class BrowserInit
         {
-            if (browser.Equals("chrome", StringComparison.OrdinalIgnoreCase))
+            IWebDriver _driver;
+            private DriverFactory _driverFactory;
+            public BrowserInit(IWebDriver driver)
             {
-                webDriver = new ChromeDriver();             
-                webDriver.Navigate().GoToUrl(url);
-                webDriver.Manage().Window.Maximize();
+
+            _driver = driver;
 
             }
-            if (browser.Equals("firefox", StringComparison.OrdinalIgnoreCase))
+            public void SetBrowserName(String browserName)
             {
-                webDriver = new FirefoxDriver();
-                webDriver.Navigate().GoToUrl(url);
-                webDriver.Manage().Window.Maximize();
+                _driverFactory.driverInit(browserName);
+
+            }
+            public void SetURL(String url)
+            {
+                _driver.Navigate().GoToUrl(url);
+               
+            }
+            
+            public void AssertTitle(String expectedTitle)
+            {
+                String actualTitle= _driver.Title;
+                Assert.AreEqual(expectedTitle, expectedTitle);
             }
 
-            if (browser.Equals("IE", StringComparison.OrdinalIgnoreCase))
-            {
-                webDriver = new InternetExplorerDriver();
-                webDriver.Navigate().GoToUrl(url);
-                webDriver.Manage().Window.Maximize();
-            }
-
-            return webDriver;
         }
-        
-         public void CloseBrowser()
-        {
-            webDriver.Quit();
-        }
-    
-    
-    }
-
-    
-
+            
 }
+
+
+
+    

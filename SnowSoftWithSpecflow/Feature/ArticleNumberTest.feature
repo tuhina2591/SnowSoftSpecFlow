@@ -6,9 +6,9 @@
 
 @mytag
 Scenario: 1 Validate Snow Software Title
-	When URL "http://www.snowsoftware.com" is opened in "Chrome" browser
-	Then Title should be "Snow Software – The Technology Intelligence Platform"
-	
+	Given "Chrome" broswer is Launched
+	When URL "http://www.snowsoftware.com" is accesed
+	Then the Title should be "Snow Software – The Technology Intelligence Platform"
 
 Scenario: 2 Verify Redirection to Snow Globe Page
 	Given "http://www.snowsoftware.com" is open in "Chrome"
