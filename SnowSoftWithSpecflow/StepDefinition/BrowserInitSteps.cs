@@ -8,12 +8,10 @@ namespace SnowSoftWithSpecflow.StepDefinition
     [Binding]
     public class BrowserInitSteps
     {
-        //private readonly BrowserInit _browserInit;
         private readonly UtilMethods _utilMethods;
        
         public BrowserInitSteps(IWebDriver driver)
         {
-            //_browserInit = new BrowserInit(driver);
             _utilMethods = new UtilMethods(driver);
         }
 
@@ -34,8 +32,5 @@ namespace SnowSoftWithSpecflow.StepDefinition
         {
             _utilMethods.AssertTitle(browserTitle);
         }
-
-
-
     }
 }

@@ -1,7 +1,6 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
-using SnowSoftWithSpecflow.Factory;
 using System;
 
 
@@ -16,7 +15,6 @@ namespace SnowSoftWithSpecflow.PageObjects
         private readonly By _successLink = By.LinkText("Success");
         private readonly By _snowGlobeLink = By.LinkText("Snow Globe Community");
         
-
         public SnowHome(IWebDriver driver)
         {
             _driver = driver;

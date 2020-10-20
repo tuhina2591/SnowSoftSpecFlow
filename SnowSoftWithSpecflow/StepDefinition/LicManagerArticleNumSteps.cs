@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using TechTalk.SpecFlow;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.PageObjects;
 using System.Threading;
@@ -14,14 +10,12 @@ namespace SnowSoftWithSpecflow.StepDefinition
     [Binding]
     public sealed class LicManagerArticleNumSteps
     {
-        //private readonly BrowserInit _browserInit;
         private readonly UtilMethods _utilMethods;
         private readonly SnowHome _snowHome;
         private readonly GlobeCommunity _globeCommunity;
         private readonly LicenseManager _licenseManager;
         public LicManagerArticleNumSteps(IWebDriver driver)
         {
-            //_browserInit = new BrowserInit(driver);
             _utilMethods = new UtilMethods(driver);
             _snowHome = new SnowHome(driver);
             _globeCommunity = new GlobeCommunity(driver);
@@ -61,9 +55,6 @@ namespace SnowSoftWithSpecflow.StepDefinition
         {
             String number = _licenseManager.GetArticleNumber();
             _utilMethods.AssertEqual(articleNumber, number);
-            //Assert.AreEqual(articleNumber, number);
         }
-
-
     }
 }

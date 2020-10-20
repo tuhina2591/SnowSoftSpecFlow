@@ -17,7 +17,6 @@ namespace SnowSoftWithSpecflow.Support
             _objectContainer = objectContainer;
         }
 
-
         [BeforeTestRun]
         public static void BeforeTestRun()
         {
@@ -29,13 +28,13 @@ namespace SnowSoftWithSpecflow.Support
         {
             _driver = _driverFactory.driverInit("Chrome");
             _driver.Manage().Window.Maximize();
+            _objectContainer.RegisterInstanceAs(_driver);
         }
 
         [AfterScenario]
         public void AfterScenario()
         {
             _driverFactory.CloseBrowser();
-
         }
     }
 }

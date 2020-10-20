@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using System.Threading;
-using NUnit.Framework;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.PageObjects;
 using TechTalk.SpecFlow;
@@ -13,13 +9,11 @@ namespace SnowSoftWithSpecflow.StepDefinition
     [Binding]
     public class GlobeToLicManagerSteps
     {
-        //private readonly BrowserInit _browserInit;
         private readonly UtilMethods _utilMethods;
         private readonly SnowHome _snowHome;
         private readonly GlobeCommunity _globeCommunity;
         public GlobeToLicManagerSteps(IWebDriver driver)
         {
-            //_browserInit = new BrowserInit(driver);
             _utilMethods = new UtilMethods(driver);
             _snowHome = new SnowHome(driver);
             _globeCommunity = new GlobeCommunity(driver);

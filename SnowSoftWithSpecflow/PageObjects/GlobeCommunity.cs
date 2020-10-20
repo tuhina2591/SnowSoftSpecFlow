@@ -19,12 +19,14 @@ namespace SnowSoftWithSpecflow.PageObjects
             _driver = driver;
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
+
         public String GetLabelText()
         {
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.ElementIsVisible(searchTextBox));
             String label = _driver.FindElement(labelText).Text;
             return label;
         }
+
         public void SetSearchString(String searchText)
         {
             _driver.FindElement(searchTextBox).SendKeys(searchText);

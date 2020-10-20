@@ -12,12 +12,13 @@ namespace SnowSoftWithSpecflow.PageObjectss
 
         private readonly By articleBlock = By.XPath("//div[contains(@class,'slds-page-header')]//span[contains(text(),'Article Number')]");
         private readonly By articleNumber = By.XPath("//div[contains(@class,'slds-page-header')]//span[contains(text(),'Article Number')]/..//span[@class='uiOutputText']");
+        
         public LicenseManager(IWebDriver driver)
         {
             _driver = driver;
             _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
-    
+
         public String GetArticleNumber()
         {
             _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(articleBlock));
@@ -25,8 +26,5 @@ namespace SnowSoftWithSpecflow.PageObjectss
             String articleNum = _driver.FindElement(articleNumber).Text;
             return articleNum;
         }
-    
-    
-    
     }
 }
