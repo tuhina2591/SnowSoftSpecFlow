@@ -1,6 +1,7 @@
 ﻿using System;
 using OpenQA.Selenium;
 using NUnit.Framework;
+using System.Threading;
 
 namespace SnowSoftWithSpecflow.PageObjects
 {
@@ -27,6 +28,11 @@ namespace SnowSoftWithSpecflow.PageObjects
         public void AssertEqual(String expValue, String actValue)
         {
             Assert.AreEqual(expValue, actValue);
+        }
+
+        public void Sleep(int miliSeconds)
+        {
+            Thread.Sleep(miliSeconds);
         }
     
     }

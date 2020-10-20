@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.PageObjects;
 using TechTalk.SpecFlow;
@@ -30,21 +29,21 @@ namespace SnowSoftWithSpecflow.StepDefinition
         {
             _snowHome.MoveToSuccessLink();
             _snowHome.ClickSnowGlobeLink();
-            Thread.Sleep(10000);
+            _utilMethods.Sleep(10000);
         }
 
         [When(@"he enters ""(.*)"" in SearchBox")]
         public void WhenHeEntersInSearchBox(string searchText)
         {
             _globeCommunity.SetSearchString(searchText);
-            Thread.Sleep(10000);
+            _utilMethods.Sleep(10000);
         }
 
         [When(@"clicks on ""(.*)"" link")]
         public void WhenClicksOnLink(string p0)
         {
             _globeCommunity.ClickReleaseLink();
-            Thread.Sleep(30000);
+            _utilMethods.Sleep(20000);
             Console.WriteLine("Page" + p0 + "is Open");
         }
 

@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Threading;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.PageObjects;
 using TechTalk.SpecFlow;
@@ -37,7 +36,7 @@ namespace SnowSoftWithSpecflow.StepDefinition
         public void WhenClicksOnSnowGlobeCommunityLink()
         {
             _snowHome.ClickSnowGlobeLink();
-            Thread.Sleep(10000);
+            _utilMethods.Sleep(10000);
         }
 
         [Then(@"""(.*)"" Page should be opened")]

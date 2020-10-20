@@ -2,7 +2,6 @@
 using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.PageObjects;
-using System.Threading;
 using SnowSoftWithSpecflow.PageObjectss;
 
 namespace SnowSoftWithSpecflow.StepDefinition
@@ -33,21 +32,21 @@ namespace SnowSoftWithSpecflow.StepDefinition
         {
             _snowHome.MoveToSuccessLink();
             _snowHome.ClickSnowGlobeLink();
-            Thread.Sleep(10000);
+            _utilMethods.Sleep(10000);
         }
 
         [Given(@"""(.*)"" is entered in SearchBox")]
         public void GivenIsEnteredInSearchBox(string searchText)
         {
             _globeCommunity.SetSearchString(searchText);
-            Thread.Sleep(10000);
+            _utilMethods.Sleep(10000);
         }
 
         [Given(@"""(.*)"" Link is Clicked")]
         public void GivenLinkIsClicked(string p0)
         {
             _globeCommunity.ClickReleaseLink();
-            Thread.Sleep(30000);
+            _utilMethods.Sleep(20000);
         }
 
         [Then(@"the Article Number should be ""(.*)""")]
