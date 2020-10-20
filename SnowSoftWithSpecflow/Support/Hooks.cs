@@ -1,11 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using TechTalk.SpecFlow;
-using SnowSoftWithSpecflow.PageObjects;
+﻿using TechTalk.SpecFlow;
 using OpenQA.Selenium;
 using SnowSoftWithSpecflow.Factory;
+using BoDi;
 
 namespace SnowSoftWithSpecflow.Support
 {
@@ -13,11 +9,17 @@ namespace SnowSoftWithSpecflow.Support
     public class Hooks
     {
         private IWebDriver _driver;
-        private DriverFactory _driverFactory;
-        private String bName;
+        private static DriverFactory _driverFactory;
+        private readonly IObjectContainer _objectContainer;
+
+        public Hooks(IObjectContainer objectContainer)
+        {
+            _objectContainer = objectContainer;
+        }
+
 
         [BeforeTestRun]
-        public void BeforeTestRun()
+        public static void BeforeTestRun()
         {
             _driverFactory = new DriverFactory();
         }
@@ -25,7 +27,7 @@ namespace SnowSoftWithSpecflow.Support
         [BeforeScenario]
         public void BeforeScenario()
         {
-            _driver = _driverFactory.driverInit(bName);
+            _driver = _driverFactory.driverInit("Chrome");
             _driver.Manage().Window.Maximize();
         }
 

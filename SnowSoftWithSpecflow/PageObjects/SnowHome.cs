@@ -1,39 +1,39 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Interactions;
 using OpenQA.Selenium.Support.UI;
+using SnowSoftWithSpecflow.Factory;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace SnowSoftWithSpecflow.PageObjects
 {
     public class SnowHome
     {
-        IWebDriver driver;
-        IWebElement succLink;
-        WebDriverWait wait;
-        Actions actions;
-        By successLink = By.LinkText("Success");
-        By snowGlobeLink = By.LinkText("Snow Globe Community");
+        IWebDriver _driver;
+        private IWebElement _succLink;
+        private readonly WebDriverWait _wait;
+        Actions _actions;
+        private readonly By _successLink = By.LinkText("Success");
+        private readonly By _snowGlobeLink = By.LinkText("Snow Globe Community");
         
+
         public SnowHome(IWebDriver driver)
         {
-            this.driver = driver;
-            actions = new Actions(driver);
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
-
+            _driver = driver;
+            _actions = new Actions(driver);
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
         
         public void MoveToSuccessLink()
         {
-            succLink = driver.FindElement(successLink);
-            actions.MoveToElement(succLink).Perform();
+            _succLink = _driver.FindElement(_successLink);
+            _actions.MoveToElement(_succLink).Perform();
         }
     
         public void ClickSnowGlobeLink()
         {
-            driver.FindElement(snowGlobeLink).Click();
-            WebDriverWait wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            _driver.FindElement(_snowGlobeLink).Click();
+            
         }
 
     }

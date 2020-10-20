@@ -1,29 +1,28 @@
 ﻿using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
-using System.Collections.Generic;
-using System.Text;
+
 
 namespace SnowSoftWithSpecflow.PageObjectss
 {
     public class LicenseManager
     {
-        IWebDriver driver;
-        WebDriverWait wait;
+        private IWebDriver _driver;
+        private WebDriverWait _wait;
 
-        By articleBlock = By.XPath("//div[contains(@class,'slds-page-header')]//span[contains(text(),'Article Number')]");
-        By articleNumber = By.XPath("//div[contains(@class,'slds-page-header')]//span[contains(text(),'Article Number')]/..//span[@class='uiOutputText']");
+        private readonly By articleBlock = By.XPath("//div[contains(@class,'slds-page-header')]//span[contains(text(),'Article Number')]");
+        private readonly By articleNumber = By.XPath("//div[contains(@class,'slds-page-header')]//span[contains(text(),'Article Number')]/..//span[@class='uiOutputText']");
         public LicenseManager(IWebDriver driver)
         {
-            this.driver = driver;
-            wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
+            _driver = driver;
+            _wait = new WebDriverWait(driver, TimeSpan.FromSeconds(30));
         }
     
         public String GetArticleNumber()
         {
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(articleBlock));
-            wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(articleNumber));
-            String articleNum= driver.FindElement(articleNumber).Text;
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(articleBlock));
+            _wait.Until(SeleniumExtras.WaitHelpers.ExpectedConditions.VisibilityOfAllElementsLocatedBy(articleNumber));
+            String articleNum = _driver.FindElement(articleNumber).Text;
             return articleNum;
         }
     

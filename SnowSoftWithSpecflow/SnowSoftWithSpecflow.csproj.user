@@ -2,16 +2,16 @@
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup />
   <ItemGroup>
-    <Compile Update="StepDefinition\ArticleNumValidationSteps.cs">
+    <Compile Update="StepDefinition\LicManagerArticleNumSteps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StepDefinition\LaunchBrowserSteps.cs">
+    <Compile Update="StepDefinition\BrowserInitSteps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StepDefinition\LicenseManagerRedirectionSteps.cs">
+    <Compile Update="StepDefinition\GlobeToLicManagerSteps.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Update="StepDefinition\SnowGlobeRedirectionSteps.cs">
+    <Compile Update="StepDefinition\SnowHomeToGlobeSteps.cs">
       <SubType>Code</SubType>
     </Compile>
     <Compile Update="Support\Hooks.cs">
